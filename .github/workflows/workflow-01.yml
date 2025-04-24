@@ -1,0 +1,24 @@
+name: workflow-01
+# on: [pull_request]
+on:
+  pull_request_review
+
+jobs:
+  job-01:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job ran on ${{runner.os}} server hosted by GitHub."
+      - name: "Job Name"
+        run: echo "Job name is ${{github.job}}"
+      - run: echo "This job was automatically triggered by a ${{github.event_name}} event."
+      - run: echo "Source coude repository is ${{github.repository}}. Repo branch is ${{github.ref}}."
+      - uses: actions/checkout@v4
+      - run: ls ${{github.workspace}}
+  job-02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Job Name"
+        run: echo "Job name is ${{github.job}}"
+     
+      
+
